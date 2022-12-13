@@ -59,20 +59,4 @@ function movieList({title}) {
 movieList()
 
 
-function buyTicket(movie) {
-    const ticketsSold = document.querySelector("#ticketssold");
-    let remainingTickets = movie.capacity - movie.tickets_sold;
-    const btn = movieDetailsContainer.querySelector("button");
-    const availableTickets = document.querySelector("#availableTickets");
 
-    if (remainingTickets > 0) {
-      movie.tickets_sold++;
-      remainingTickets--;
-      btn.innerHTML = "purchase ticket";
-    } else {
-      btn.innerHTML = "no more tickets";
-      btn.classList.add("soldOut");
-    }
-    ticketsSold.innerHTML = `Tickets sold: <span>${movie.tickets_sold}</span>`;
-    availableTickets.innerHTML = `Available tickets: <span>${remainingTickets}</span>`;
-  }
