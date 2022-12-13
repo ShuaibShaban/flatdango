@@ -59,15 +59,20 @@ function movieList({title}) {
 movieList()
 
 
-function ticketClick(clicks, id) {
-    const totalClicks = document.getElementById(`cards${id}`)
-    const sumvalue = parseInt(totalClicks.innerText) + clicks
-    totalClicks.innerText = sumvalue
-    if (sumvalue < 0) {
-        totalClicks.innerText = 0
-        alert("sorry tickets diplited")
+function buyTicket(movie) {
+    const ticketsSold = document.querySelector("#ticketssold");
+    let remainingTickets = movie.capacity - movie.tickets_sold;
+    const btn = movieDetailsContainer.querySelector("button");
+    const availableTickets = document.querySelector("#availableTickets");
+
+    if (remainingTickets > 0) {
+      movie.tickets_sold++;
+      remainingTickets--;
+      btn.innerHTML = "purchase ticket";
+    } else {
+      btn.innerHTML = "no more tickets";
+      btn.classList.add("soldOut");
     }
-    return totalClicks
-}
-totalClick()
-const button = document.getElementById('')
+    ticketsSold.innerHTML = `Tickets sold: <span>${movie.tickets_sold}</span>`;
+    availableTickets.innerHTML = `Available tickets: <span>${remainingTickets}</span>`;
+  }
