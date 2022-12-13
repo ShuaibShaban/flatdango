@@ -1,6 +1,8 @@
 const url = 'https://api.npoint.io/38aebdb16c6ba20c7efb/films/'
 
-const details = document.getElementById('details')
+// const ticket btn =  
+
+// const details = document.getElementById('details')
 
 fetch(`${url}`).then((response) => response.json())
 .then(json=>{json.map(data=>
@@ -10,7 +12,7 @@ fetch(`${url}`).then((response) => response.json())
     
     })})
 
-function movies({title,runtime, showtime, description,poster,tickets_sold}) {
+function movies({title,runtime, showtime, description,poster,tickets_sold,id}) {
     let info = document.createElement('div')
     info.innerHTML= `
     <div class="card" style="width: 18rem ;">
@@ -20,8 +22,9 @@ function movies({title,runtime, showtime, description,poster,tickets_sold}) {
                   <p class="card-text">Runtime:  ${runtime}</p>
                   <p class="card-text">${description}</p>
                   <p class="card-text">Time:  ${showtime}</p>
-                  <p class="card-text">Available tickets: ${tickets_sold}</p>
-                  <button type="button" class="btn btn-dark">Buy ticket</button>
+                  <p id="card${id}"> ${tickets_sold}</p>
+                  <p class="card-text"> Available ticket</p>
+                  <button onclick="ticketClick(-1${id})"type="button" id="button${id}"class="btn btn-dark">Buy ticket</button>
 
         
                   </div>
@@ -30,14 +33,41 @@ function movies({title,runtime, showtime, description,poster,tickets_sold}) {
 
     `
 
-    // button.addEventListner('click' , () => {
-    //     if(tickets_sold > 0) {
-    //         tickets_sold -= 1;
-    //     }
-    // })
 
-return info
+
+    return info
 
 
 
 }
+// / / function for list on the left side
+
+fetch(`${url}`).then((response) => response.json())
+.then(json=>{json.map(data=>
+    {console.log(data)
+    list.append(movieList(data))
+    })})
+function movieList({title}) {
+    let list = document.createElement("ul")
+   list.innerHTML =`
+   <ul>
+   <ol>${title}</ol>
+</ul>
+    `;
+    return list
+}
+movieList()
+
+
+function ticketClick(clicks, id) {
+    const totalClicks = document.getElementById(`cards${id}`)
+    const sumvalue = parseInt(totalClicks.innerText) + clicks
+    totalClicks.innerText = sumvalue
+    if (sumvalue < 0) {
+        totalClicks.innerText = 0
+        alert("sorry tickets diplited")
+    }
+    return totalClicks
+}
+totalClick()
+const button = document.getElementById('')

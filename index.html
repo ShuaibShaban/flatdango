@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Movies_API</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oi&display=swap" rel="stylesheet">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Movie Posters</title>
-    <style>
-
-    </style>
 </head>
-
 <body>
-   
-<div class="container">
-    <nav>
-        <div class="nav-wrapper d-flex">
-            <a href="" class="brand-logo center">Movie Posters</a>
-            <h3 id="key"></h3>
+    <nav class="navbar bg-dark" id="flatiron">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light">FLT_<span style="color:darkred;">IRON</span></a>
+
+            <ul class="navbar-nav me-auto d-flex flex-row">
+                <li class="nav-item me-2">
+                    <a class="text-light nav-link" href="#" id="Available-Movies-link"></a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="text-light nav-link" href="#" id="MOVIES-link">MOVIES</a>
+                </li>
+            </ul>
+
+            <form class="d-flex">
+                <input class="form-control" type="text" placeholder="Search" id="search"/>
+                <button class="btn btn-outline-info ms-1" id="searchBtn">SEARCH</button>
+            </form>
         </div>
     </nav>
-
-    <div class="main">
-        <div class="row">
-            <div class="col s10 m10">
-                <input type="text" name="" placeholder="Search" id="movie_search">
-            </div>
-            <div class="col s2 m2">
-                <button class="btn waves-effect waves- btn-large" id="button" onclick="fetchName()" style="background-color: #F40612;width: 100%;"> Search</button>
-            </div>
-        </div>
-
-        <div class="row" id="row-body">
-            <div class="col s12 valign center" id="lds-roller">
-                Loading <br>
-                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    
+        <div class="row d-flex">
+          <div class="col">
+            <div id="list" class="list">
+                <!-- <ul>
+                    <ol>Movie list</ol>
+                </ul> -->
+               </div>
+          </div>
+          <div id="details" class="col-6 d-flex">
+            <div  class="col-6 d-flex">
 
             </div>
-           
-        </div>
-    </div>
-</div>
+          
 
+          
 
+             
 
+              
+
+    <script src="./js/index.js"></script>
 </body>
-<script src="./static/js/index.js"></script>
-</html
+</html>
+
+

@@ -1,0 +1,20 @@
+{
+  "name": "flatdango-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ShuaibShaban/flatdango.git"
+  },
+  "author": "Shuaib Shaban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShuaibShaban/flatdango/issues"
+  },
+  "homepage": "https://github.com/ShuaibShaban/flatdango#readme"
+}
