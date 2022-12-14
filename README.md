@@ -11,7 +11,7 @@
 
 - On the left side of my panel, is a list of available ,Movies displayed together with the tickets available and as you click to buy tickets, the current number of available tickets decreases.
 
-- What this app does is to show the list of available movies and their runtime. If i get to buy a ticket, i manage to a book a spot in that theatre to watch the movie i have purchased the ticket for.
+- What this app does is to show the list of available movies and their runtime. If i get to buy a ticket, i manage to a book a spot in that theatre to watch the movie i have purchased the ticket for. If you click on the individual title  of the list of movies displayed on the left side of the panel a new poster is displayed on the right-dark side of the panel displaying the details of the movies, in the card.
 
 ## Tools used
 
