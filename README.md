@@ -3,12 +3,15 @@
 - This application displays a list of movies on the right side of my panel on this repo.
 
 - Click on this link to get a view of live deployment on this current project i am working on.
+  
+      
+      http://flatdango-roan.vercel.app/
 
 
 
 - On the left side of my panel, is a list of available ,Movies displayed together with the tickets available and as you click to buy tickets, the current number of available tickets decreases.
 
-- What this app does is to show the list of available movies and their runtime. If i get to buy a ticket, i manage to a book a spot in that theatre.
+- What this app does is to show the list of available movies and their runtime. If i get to buy a ticket, i manage to a book a spot in that theatre to watch the movie i have purchased the ticket for.
 
 ## Tools used
 
