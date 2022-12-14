@@ -2,19 +2,7 @@
 
 const url = "https://api.npoint.io/38aebdb16c6ba20c7efb/films/";
 
-// fetch from npoint host/server where my data is converted to json
-// fetch(`${url}`)
-//   .then((response) => response.json())
-//   .then((json) => {
-
-//       // add additional information about the movie on the card
-//       json.map(film => {
-//         movies(film)
-//       })
-
-//     });
-
-// / / function for list on the left side
+// data being fetched from the remote server from the link above provided.
 
 fetch(`${url}`)
   .then((response) => response.json())
@@ -42,6 +30,8 @@ function movieList(films) {
 let info = document.querySelector("#details");
 function movies(film) {
   info.innerHTML = "";
+
+  // inner.HTML containing the card  body and each and every specific portion that the card details are supposed to be presented
   info.insertAdjacentHTML(
     "afterbegin",
     `
@@ -66,13 +56,15 @@ function movies(film) {
   
     `
   );
-
+// event listener addeded mainly to target the ticketBtn
   const button = info.querySelector("#ticketBtn");
 
   button.addEventListener("click", () => {
     buyTicket(film);
   });
 }
+
+// The function that reduces the number of tickets once the tickets are bought from the theatre
 
 function buyTicket(movie) {
   const button = info.querySelector("#ticketBtn");
@@ -91,4 +83,4 @@ function buyTicket(movie) {
   availableTicketsDisplay.innerHTML = `available tickets: ${availableTickets}`;
 }
 
-// movieList();
+
