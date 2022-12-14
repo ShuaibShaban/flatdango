@@ -1,11 +1,15 @@
-#details{
-    display: flex;
-    flex-wrap: wrap;
-    justify-items: flex-start;
+#details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: flex-start;
 }
 
-.card{
-    margin: 14px;
+.card {
+  margin: 14px;
 }
 
-
+#list li {
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}

@@ -1,62 +1,94 @@
-const url = 'https://api.npoint.io/38aebdb16c6ba20c7efb/films/'
+// npoint url where i am hosting my project
 
-// const ticket btn =  
+const url = "https://api.npoint.io/38aebdb16c6ba20c7efb/films/";
 
-// const details = document.getElementById('details')
+// fetch from npoint host/server where my data is converted to json
+// fetch(`${url}`)
+//   .then((response) => response.json())
+//   .then((json) => {
 
-fetch(`${url}`).then((response) => response.json())
-.then(json=>{json.map(data=>
-   
-    {console.log(data)
-        details.append(movies(data))
+//       // add additional information about the movie on the card
+//       json.map(film => {
+//         movies(film)
+//       })
+
+//     });
+
+// / / function for list on the left side
+
+fetch(`${url}`)
+  .then((response) => response.json())
+  .then((json) => {
+    movieList(json);
+  });
+function movieList(films) {
+  const listContainer = document.querySelector("#list");
+  films.map((film) => {
+    const markup = `
     
-    })})
+    <li>${film.title}</li>
 
-function movies({title,runtime, showtime, description,poster,tickets_sold,id}) {
-    let info = document.createElement('div')
-    info.innerHTML= `
+     `;
+
+    listContainer.insertAdjacentHTML("afterbegin", markup);
+    movies(films[0]);
+    const movieList = listContainer.querySelector("li");
+    movieList.addEventListener("click", () => {
+      movies(film);
+    });
+  });
+}
+
+let info = document.querySelector("#details");
+function movies(film) {
+  info.innerHTML = "";
+  info.insertAdjacentHTML(
+    "afterbegin",
+    `
     <div class="card" style="width: 18rem ;">
-                <img src="${poster}" class="card-img-top" alt="...">
+                <img src="${film.poster}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">${title}</h5>
-                  <p class="card-text">Runtime:  ${runtime}</p>
-                  <p class="card-text">${description}</p>
-                  <p class="card-text">Time:  ${showtime}</p>
-                  <p id="card${id}"> ${tickets_sold}</p>
-                  <p class="card-text"> Available ticket</p>
-                  <button onclick="ticketClick(-1${id})"type="button" id="button${id}"class="btn btn-dark">Buy ticket</button>
-
+                  <h5 class="card-title">${film.title}</h5>
+                  <p class="card-text">Runtime:  ${film.runtime}</p>
+                  <p class="card-text">${film.description}</p>
+                  <p class="card-text">Time:  ${film.showtime}</p>
+                  <p id="capacity">capacity: ${film.capacity}</p>
+                  <p id="ticketsSold">tickets sold: ${film.tickets_sold}</p>
+                  <p class="card-text" id="availableTickets"> Available tickets: ${
+                    film.capacity - film.tickets_sold
+                  }</p>
+                  <button type="button" id="ticketBtn"class="btn btn-dark">Buy ticket</button>
+  
         
                   </div>
                 </div>
-            </div>
-
+            
+  
     `
+  );
 
+  const button = info.querySelector("#ticketBtn");
 
-
-    return info
-
-
-
+  button.addEventListener("click", () => {
+    buyTicket(film);
+  });
 }
-// / / function for list on the left side
 
-fetch(`${url}`).then((response) => response.json())
-.then(json=>{json.map(data=>
-    {console.log(data)
-    list.append(movieList(data))
-    })})
-function movieList({title}) {
-    let list = document.createElement("ul")
-   list.innerHTML =`
-   <ul>
-   <ol>${title}</ol>
-</ul>
-    `;
-    return list
+function buyTicket(movie) {
+  const button = info.querySelector("#ticketBtn");
+  const tickectsSold = info.querySelector("#ticketsSold");
+  const availableTicketsDisplay = info.querySelector("#availableTickets");
+  let availableTickets = movie.capacity - movie.tickets_sold;
+
+  if (availableTickets > 0) {
+    movie.tickets_sold++;
+    availableTickets--;
+  } else {
+    button.innerHTML = "Sold out";
+  }
+
+  tickectsSold.innerHTML = `tickets sold: ${movie.tickets_sold}`;
+  availableTicketsDisplay.innerHTML = `available tickets: ${availableTickets}`;
 }
-movieList()
 
-
-
+// movieList();
